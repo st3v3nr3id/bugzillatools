@@ -166,7 +166,7 @@ class Bugzilla(object):
         field = filter(lambda x: x['name'] == name, self.get_fields())[0]
         values = field['values']
         if omit_empty:
-            values = filter(lambda x: x['name'], values)
+            values = filter(lambda x: 'name' in x, values)
         value_field = field.get('value_field')
         if visible_for and value_field and value_field in visible_for:
             visibility_value = visible_for[value_field]
